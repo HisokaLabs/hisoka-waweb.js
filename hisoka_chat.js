@@ -114,7 +114,8 @@ module.exports = async (hisoka, m, commands) => {
                 isAdmin,
                 toUpper: function(query) {
                     return query.replace(/^\w/, c => c.toUpperCase())
-                }
+                },
+                Function: require("./lib"),
             }
             cmd.start(hisoka, m, cmdOptions)
         } catch(e) {
