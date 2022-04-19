@@ -9,12 +9,12 @@ global.reloadFile = (file, options = {}) => {
 
 // Rest Api
 global.APIs = {
-	zenz: 'https://zenzapi.xyz',
+	zenz: 'https://zenzapis.xyz',
 }
 
 // Apikey
 global.APIKeys = {
-	'https://zenzapi.xyz': 'Your Apikey',
+	'https://zenzapis.xyz': 'Your Apikey',
 }
 
 // Other
