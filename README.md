@@ -73,9 +73,8 @@ npm start
 | toimage            |       ✔️       |
 | emojimix           |       ✔️       |
 
-
 |     Group Menu     |  Availability  |
-| :----------------: | :-----+------: |
+| :----------------: | :------------: |
 | add                |       ✔️       |
 | announce           |       ✔️       |
 | demote             |       ✔️       |
@@ -88,21 +87,18 @@ npm start
 | setdesc            |       ✔️       |
 | setsubject         |       ✔️       |
 
-
 |     Main Menu      |  Availability  |
-| :----------------: | :-----+------: |
+| :----------------: | :------------: |
 | help               |       ✔️       |
 
-
 |     Owner Menu     |  Availability  |
-| :----------------: | :-----+------: |
+| :----------------: | :------------: |
 | eval               |       ✔️       |
 | leave              |       ✔️       |
 | exec               |       ✔️       |
 
-
 |     Tool Menu      |  Availability  |
-| :----------------: | :-----+------: |
+| :----------------: | :------------: |
 | inspect            |       ✔️       |
 | searchmsg          |       ✔️       |
 
