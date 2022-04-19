@@ -44,7 +44,7 @@ const readCommands = () => {
                     start: () => {}
                 }
                 listCommand[groups].push(options)
-                Commands.set(command.name, options)
+                Commands.set(options.name, options)
                 global.reloadFile(`${dir}/${res}/${file}`)
             }
         })
