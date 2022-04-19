@@ -24,11 +24,27 @@ const readCommands = () => {
             Commands.type = dirs.filter(v => v !== "_").map(v => v)
             listCommand[groups] = []
             let files = fs.readdirSync(`${dir}/${res}`).filter((file) => file.endsWith(".js"))
-            console.log(files)
             for (const file of files) {
                 const command = require(`${dir}/${res}/${file}`)
-                listCommand[groups].push(command)
-                Commands.set(command.name, command)
+                let options = {
+                    name: command.name ? command.name : "",
+                    alias: command.alias ? command.alias : [],
+                    desc: command.desc ? command.desc : "",
+                    type: command.type ? command.type : "",
+                    example: command.example ? command.example : "",
+                    isMedia: command.isMedia ? command.isMedia : false,
+                    isOwner: command.isOwner ? command.isOwner : false,
+                    isGroup: command.isGroup ? command.isGroup : false,
+                    isPrivate: command.isPrivate ? command.isPrivate : false,
+                    isBotAdmin: command.isBotAdmin ? command.isBotAdmin : false,
+                    isAdmin: command.isAdmin ? command.isAdmin : false,
+                    isBot: command.isBot ? command.isBot : false,
+                    disable: command.disable ? command.disable : false,
+                    isQuery: command.isQuery ? command.isQuery : false,
+                    start: () => {}
+                }
+                listCommand[groups].push(options)
+                Commands.set(command.name, options)
                 global.reloadFile(`${dir}/${res}/${file}`)
             }
         })
