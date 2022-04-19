@@ -41,7 +41,7 @@ const readCommands = () => {
                     isBot: command.isBot ? command.isBot : false,
                     disable: command.disable ? command.disable : false,
                     isQuery: command.isQuery ? command.isQuery : false,
-                    start: () => {}
+                    start: command.start ? command.start : () => {}
                 }
                 listCommand[groups].push(options)
                 Commands.set(options.name, options)
