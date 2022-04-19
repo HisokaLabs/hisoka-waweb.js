@@ -8,9 +8,8 @@ module.exports = {
     alias: [">",">>","=>"],
     desc: "Running JavaScript Code via Command",
     type: "owner",
-    start: async (hisoka, m, opt) => {
+    start: async (hisoka, m, { name, body, from, isMedia, type, sender, prefix, command, commands, args, isOwner, text, quoted, mime, isGroup, metadata, groupName, participants, groupAdmins, isBotAdmin, isAdmin, toUpper, Function }) => {
         let evaled
-        let { name, body, from, isMedia, type, sender, prefix, command, commands, args, isOwner, text, quoted, mime, isGroup, metadata, groupName, participants, groupAdmins, isBotAdmin, isAdmin, toUpper, Function } = opt
         try {
             if (text.endsWith("--sync")) {
                 evaled = await eval(`(async () => { ${text.trim.replace("--sync", "")} })`)
