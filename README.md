@@ -1,6 +1,9 @@
 <div align="center">
 <img src="https://hisoka-morou.netlify.app/assets/image/Hisoka-Morrou.png" width="150" height="150" border="0" alt="PFFP">
 
+#### Rules
+read the rules at [`term-of-service`](https://hisoka-morou.netlify.app/tos)
+
 
 # hisoka-waweb.js
 ### Script Bot WhatsApp Multi Device dengan menggunakan Library whatsapp-web.js
