@@ -110,6 +110,7 @@ npm start
 
 * [`Hisoka Team`](https://github.com/Hisoka-Morrou)
 * [`Dika Ardnt.`](https://github.com/DikaArdnt)
+* [`pedroslopez`](https://github.com/pedroslopez/whatsapp-web.js)
 
 # License
 **hisoka-waweb.js** © [DikaArdnt](https://github.com/DikaArdnt), released under the MIT License.
