@@ -7,14 +7,14 @@ const { exec, spawn, execSync } = require("child_process")
 const axios = require('axios')
 const os = require('os')
 const moment = require("moment-timezone")
-
+const { correct } = require("./Correct")
 
 
 module.exports = async (hisoka, m, commands) => {
     try {
         const { body, from, hasMedia: isMedia, type } = m
         let sender = m.author || m.from
-        var prefix = /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : ''
+        var prefix = /^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi.test(body) ? body.match(/^[°•π÷×¶∆£¢€¥®™+✓_=|~!?@#$%^&.©^]/gi)[0] : '#'
         let isCmd = body.startsWith(prefix)
         const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
         const args = body.trim().split(/ +/).slice(1)
@@ -44,7 +44,24 @@ module.exports = async (hisoka, m, commands) => {
         const cmd = commands.get(command) || Array.from(commands.values()).find((v) => v.alias.find((x) => x.toLowerCase() == command)) || ""
 
 
-        if (!cmd) return
+        if (isCmd && !cmd) {
+            var array = Array.from(commands.keys());
+            Array.from(commands.values()).map((v) => v.alias).join(" ").replace(/ +/gi, ",").split(",").map((v) => array.push(v))
+
+            var anu = await correct(command, array)
+            var alias = commands.get(anu.result) || Array.from(commands.values()).find((v) => v.alias.find((x) => x.toLowerCase() == anu.result)) || ""
+console.log(anu)
+            teks = `
+Command *Not Found!*, Maybe you mean is 
+
+*_Command :_* ${prefix + anu.result}
+*_Alias :_* ${alias.alias.join(", ")}
+*_Accurary :_* ${anu.rating}
+
+_Send command again if needed_
+            `
+            m.reply(teks)
+        } else if (!cmd) return
 
 
         if (cmd.isMedia && !isMedia) {
