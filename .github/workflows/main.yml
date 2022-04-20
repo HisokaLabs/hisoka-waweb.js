@@ -1,9 +1,6 @@
 name: Deploy
 
-on:
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
   build:
@@ -16,5 +13,5 @@ jobs:
           heroku_app_name: "hisoka-wawebjs" #Must be unique in Heroku
           heroku_email: ${{screts.HEROKU_EMAIL}} 
           usedocker: true,
-          procfile: "worker: npm start",
+          procfile: "worker: node .",
           buildpack: "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
