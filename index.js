@@ -64,6 +64,15 @@ async function connect() {
         }),
         puppeteer: {
             headless: true,
+            chromiumArgs: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--aggressive-cache-discard',
+            '--disable-cache',
+            '--disable-application-cache',
+            '--disable-offline-load-stale-cache',
+            '--disk-cache-size=0'
+            ]
         }
     })
 
