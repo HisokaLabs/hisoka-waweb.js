@@ -1,6 +1,9 @@
 name: Deploy
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
@@ -11,5 +14,4 @@ jobs:
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "hisoka-wawebjs" #Must be unique in Heroku
-          heroku_email: ${{screts.HEROKU_EMAIL}}
-          buildpack: "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
