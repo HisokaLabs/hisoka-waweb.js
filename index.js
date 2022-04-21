@@ -72,7 +72,7 @@ async function connect() {
 
     if (global.opts["server"]) require("./lib/Server")(hisoka, process.env.PORT || 8000)
     if (!global.opts["server"]) {
-        hisoka.on("qr", qr => 
+        hisoka.on("qr", qr => {
             qrcode.generate(qr, { small: true })
         })
     }
