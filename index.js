@@ -70,10 +70,13 @@ async function connect() {
 
     hisoka.initialize()
 
-    if (global.opts["server"]) require("./lib/Server")(hisoka, process.env.PORT || 8000)
-    hisoka.on("qr", qr => {
-        qrcode.generate(qr, { small: true })
-    })
+    if (global.opts["server"]) {
+        require("./lib/Server")(hisoka, process.env.PORT || 8000)
+    } else {
+        hisoka.on("qr", qr => {
+            qrcode.generate(qr, { small: true })
+        })
+    }
 
     hisoka.on("authenticated", async(auth) => {
         console.log(auth)
