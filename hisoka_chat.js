@@ -7,7 +7,7 @@ const { exec, spawn, execSync } = require("child_process")
 const axios = require('axios')
 const os = require('os')
 const moment = require("moment-timezone")
-const { correct } = require("./Correct")
+const { correct } = require("./lib/Correct")
 
 
 module.exports = async (hisoka, m, commands) => {
