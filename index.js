@@ -70,10 +70,9 @@ async function connect() {
 
     hisoka.initialize()
 
-    if (global.opts["server"]) {
-        require("./lib/Server")(hisoka, process.env.PORT || 8000)
-    } else {
-        hisoka.on("qr", qr => {
+    if (global.opts["server"]) require("./lib/Server")(hisoka, process.env.PORT || 8000)
+    if (!global.opts["server"]) {
+        hisoka.on("qr", qr => 
             qrcode.generate(qr, { small: true })
         })
     }
@@ -91,7 +90,8 @@ async function connect() {
     })
 
     hisoka.on("disconnected", async(reason) => {
-        console.log("Client Was Logged Out", reason)
+        console.log("Disconnect ", reason)
+        connect()
     })
 
     hisoka.on("message_create", (msg) => {
