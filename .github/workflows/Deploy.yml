@@ -16,4 +16,5 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "hisoka-multi-device"
           usedocker: true
+          procfile: "worker: node . --server"
           buildpack: "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
